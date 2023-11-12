@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My first Page by thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/loginpage.css}" rel="stylesheet" />
+    <script type="text/javascript" th:src="@{/js/buttonmove.js}"></script>
+    <script type="text/javascript" th:src="@{/js/loginpage.js}"></script>
+
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+    <div class="login">
+        <div class="login-header">
+            <h1>Login</h1>
+        </div>
+        <div class="login-form">
+            <form th:action="@{/Authorize}" th:method="post" th:object="${formData}">
+                <h3>Username:</h3>
+                <input type="text" placeholder="Username" id="username" name="username" autofocus="autofocus"/><br>
+                <h3>Password:</h3>
+                <input type="password" placeholder="Password" id="password" name="password"/>
+                <br>
+
+<!--                <div id="space">-->
+                    <input type="submit" id="button" value="Login" class="login-button"/>
+<!--                </div>-->
+
+                <br>
+            </form>
+
+        </div>
+    </div>
+
+
+<!--    <form th:action="@{/Test}" th:method="post" th:object="${formData}">-->
+<!--        <label for="username">Username</label>:-->
+<!--        <input type="text" id="username" name="username" autofocus="autofocus" /> <br />-->
+<!--        <label for="password">Password</label>:-->
+<!--        <input type="password" id="password" name="password" /> <br />-->
+<!--        <button type="submit" id="button">Login</button>-->
+<!--    </form>-->
+
+
+    <script>
+        var button = document.getElementById("button");
+        var maxWidth = window.innerWidth - button.offsetWidth;
+        var maxHeight = window.innerHeight - button.offsetHeight;
+        var speed = 90;
+        var distance = 60;
+        var distance_x = 75;
+
+        document.addEventListener("mousemove", function(e) {
+            moveButton(e);
+            button.blur(); // removes focus from the button to prevent click events
+        });
+
+    </script>
+</body>
+</html>
